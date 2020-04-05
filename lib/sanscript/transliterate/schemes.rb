@@ -202,6 +202,21 @@ module Sanscript
                     "p ph b bh m y r l v ś ṣ s h ḻ kṣ jñ".split(/\s/),
         symbols: "0 1 2 3 4 5 6 7 8 9 oṃ ' | ||".split(/\s/),
       },
+      
+      # ISO-15919
+      # --------------------------------------------------
+      # Devanagari transliteration with particular support for 
+      # extended Hindi characters. Similar to IAST.
+      #
+      iso15919: {
+        vowels: "a ā i ī u ū r̥ r̥̄ l̥ l̥̄  e ai  o au".split(/\s/),
+        other_marks: ["ṁ", "ḥ", "~"],
+        virama: [""],
+        consonants: "k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n " \
+                    "p ph b bh m y r l v ś ṣ s h ḷ kṣ jñ".split(/\s/),
+        symbols: "0 1 2 3 4 5 6 7 8 9 oṃ ' | ||".split(/\s/),
+        other: "q k͟h ġ z d̥ d̥h f  ".split(/\s/),
+      },
 
       # ITRANS
       # ------

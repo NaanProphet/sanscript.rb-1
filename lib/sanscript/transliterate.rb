@@ -108,7 +108,7 @@ module Sanscript
 
       # Set up roman schemes
       kolkata = @schemes[:kolkata] = @schemes[:iast].deep_dup
-      roman_scheme_names = %i[iast itrans hk kolkata slp1 velthuis wx]
+      roman_scheme_names = %i[iast iso15919 itrans hk kolkata slp1 velthuis wx]
       kolkata[:vowels] = %w[a ā i ī u ū ṛ ṝ ḷ ḹ e ē ai o ō au]
 
       # These schemes already belong to Sanscript.schemes. But by adding
