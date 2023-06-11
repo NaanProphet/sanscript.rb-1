@@ -65,6 +65,16 @@ RSpec.shared_context "scheme_data" do
         naraIti: "nara iti",
         sentence: "dharmakṣetre kurukṣetre samavetā yuyutsavaḥ |",
       },
+      iso15919: {
+        vowels: "a ā i ī u ū r̥ r̥̄ l̥ l̥̄ e ai o au",
+        marks: "ka khā gi ghī ṅu cū chr̥ jr̥̄ jhl̥ ñl̥̄ ṭe ṭhai ḍo ḍhau ṇaṁ taḥ th",
+        consonants: "ka kha ga gha ṅa ca cha ja jha ña ṭa ṭha ḍa ḍha ṇa ta tha da dha na pa pha ba bha ma",
+        other: "ya ra la va śa ṣa sa ha ḷa",
+        symbols: "oṁ | || 0 1 2 3 4 5 6 7 8 9",
+        putra: "putra",
+        naraIti: "nara iti",
+        sentence: "dharmakṣetre kurukṣetre samavetā yuyutsavaḥ |",
+      },
       slp1: {
         vowels: "a A i I u U f F x X e E o O",
         marks: "ka KA gi GI Nu cU Cf jF Jx YX we WE qo QO RaM taH T",

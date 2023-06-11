@@ -150,6 +150,9 @@ module Sanscript
       data = data.to_str.dup
       options = @defaults.merge(opts)
       map = make_map(from, to)
+      if from == :devanagari && to == :itrans
+        puts map.inspect
+      end
 
       data.gsub!(/(<.*?>)/, "##\\1##") if options[:skip_sgml]
 
@@ -312,25 +315,33 @@ module Sanscript
 
         until data.empty?
           token = data[0, 2].join("")
+          print " token is: " + token + "\n"
           if !control_char && token == "##"
+            print "    a" + "\n"
             if had_roman_consonant
+              print "    b" + "\n"
               buf << "a" if transliteration_enabled
               had_roman_consonant = false
             end
+            print "    c" + "\n"
             transliteration_enabled = !transliteration_enabled
             data.shift(2)
             next
           elsif control_char && token == "#}"
+            print "    d" + "\n"
             transliteration_enabled = true
             control_char = false
             buf << token
             data.shift(2)
             next
           elsif transliteration_enabled && token == "{#"
+            print "    e" + "\n"
             if had_roman_consonant
+              print "    f" + "\n"
               buf << "a"
               had_roman_consonant = false
             end
+            print "    g" + "\n"
             transliteration_enabled = false
             control_char = true
             buf << token
@@ -339,17 +350,23 @@ module Sanscript
           end
 
           l = data.shift
+          print "  l is : " + l + "\n"
           unless transliteration_enabled
+            print "    A" + "\n"
             buf << l
             next
           end
 
           temp = map[:marks][l]
+          # print "    temp is: " + temp + "\n"
           if !temp.nil?
+            print "    B" + "\n"
             buf << temp
             had_roman_consonant = false
           else
+            print "    C" + "\n"
             if had_roman_consonant
+              print "    D" + "\n"
               buf << "a"
               had_roman_consonant = false
             end
@@ -358,9 +375,11 @@ module Sanscript
             # the letter itself.
             temp = map[:letters][l]
             if !temp.nil?
+              print "    E" + "\n"
               buf << temp
               had_roman_consonant = map[:to_roman?] && map[:consonants].key?(l)
             else
+              print "    F" + "\n"
               buf << l
             end
           end
